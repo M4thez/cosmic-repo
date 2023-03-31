@@ -1,15 +1,5 @@
 # praca-inzynierska-bmmb
 
-## Development
-
-Drive - Inżynierka
-
-- https://drive.google.com/drive/folders/107sc-pr7ainwoeZOKcoEDJQyGRuWuCTp?usp=sharing
-
-Figma designs
-
-- https://www.figma.com/files/team/1048369725744733499
-
 ### Useful links
 
 React Three Fiber
@@ -90,3 +80,13 @@ The rest - anatomy:
 
 Dev
 - https://discoverthreejs.com/book/first-steps/animation-loop/#measuring-time-across-frames
+
+## Development
+
+Drive - Inżynierka
+
+- https://drive.google.com/drive/folders/107sc-pr7ainwoeZOKcoEDJQyGRuWuCTp?usp=sharing
+
+Figma designs
+
+- https://www.figma.com/files/team/1048369725744733499
