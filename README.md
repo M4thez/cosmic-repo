@@ -1,6 +1,22 @@
 # praca-inzynierska-bmmb
 
-### Useful links
+## Commands
+
+Setup
+
+```
+npm install
+```
+
+Start dev server
+
+```
+npm run dev
+```
+
+---
+
+## Development links
 
 React Three Fiber
 
@@ -22,32 +38,18 @@ React animations
 
 - https://react-spring.dev/
 
-### Examples
+Examples
 
 - https://codesandbox.io/s/mixing-html-and-webgl-7ucso?file=/src/App.js
 - https://codesandbox.io/s/flexboxyoga-in-webgl-7psew?file=/src/App.js
 
-### Inspiration
-
-Mars
+Inspiration - Mars
 
 - https://mars.nasa.gov/
 - https://mars.nasa.gov/all-about-mars/facts/
 - https://www.space.com/41254-touring-mars-red-planet-road-trip.html
 
-## Commands
-
-Setup
-
-```
-npm install
-```
-
-Start dev server
-
-```
-npm run dev
-```
+---
 
 ## Resources
 
@@ -78,8 +80,10 @@ The rest - anatomy:
 - https://hubblesite.org/mission-and-telescope/the-telescope
 - https://voyager.jpl.nasa.gov/mission/spacecraft/interactive.php
 
-Dev
+ThreeJS - delta time
 - https://discoverthreejs.com/book/first-steps/animation-loop/#measuring-time-across-frames
+
+---
 
 ## Development
 
