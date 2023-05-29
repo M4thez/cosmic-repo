@@ -14,8 +14,6 @@ Start dev server
 npm run dev
 ```
 
----
-
 ## Development links
 
 React Three Fiber
@@ -49,8 +47,6 @@ Inspiration - Mars
 - https://mars.nasa.gov/all-about-mars/facts/
 - https://www.space.com/41254-touring-mars-red-planet-road-trip.html
 
----
-
 ## Resources
 
 - https://www.solarsystemscope.com/textures/ - solar system planets textures and background images
@@ -83,7 +79,6 @@ The rest - anatomy:
 ThreeJS - delta time
 - https://discoverthreejs.com/book/first-steps/animation-loop/#measuring-time-across-frames
 
----
 
 ## Development
 
