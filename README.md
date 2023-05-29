@@ -1,8 +1,14 @@
 # praca-inzynierska-bmmb
 
-## Commands
+## Setup commands
 
-Setup
+Enter the app directory
+
+```
+cd .\cosmic-app\
+```
+
+Install required node packages
 
 ```
 npm install
