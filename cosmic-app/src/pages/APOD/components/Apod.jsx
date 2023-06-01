@@ -15,12 +15,10 @@ import styles2 from '../../Account/styles/Account.module.scss'
 
 const API_URL = 'https://api.nasa.gov/planetary/apod?api_key='
 const RandomImageCount = '&count=4'
-// TODO Not secured API key
-const API_KEY = '0381f1py7G8yhbs9VvrxN9JPn2O5LJ88EEqolGND'
+
 const MEDIA_TYPE = '&media_type="image"'
 
 // Note: concept_tags functionality is turned off in API
-
 function CallApodApi() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -38,17 +36,8 @@ function CallApodApi() {
     window.open(image.hdurl)
   }
 
-  // Saving image to user profile
-  async function saveImage() {
-    await updateDoc(currentUserRef, {
-      savedImages: arrayUnion({ ...image }),
-    })
-    console.log(`saved iamge: ' ${image.url} to account: ${auth.currentUser.uid}`)
-    alert('You saved an image.')
-  }
-
   useEffect(() => {
-    fetch(API_URL + API_KEY)
+    fetch(API_URL + import.meta.env.VITE_NASA_API_KEY)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -60,7 +49,7 @@ function CallApodApi() {
           setError(error)
         }
       )
-    fetch(API_URL + API_KEY + RandomImageCount)
+    fetch(API_URL + import.meta.env.VITE_NASA_API_KEY + RandomImageCount)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -84,7 +73,7 @@ function CallApodApi() {
   //filter function
   async function getImages(numberOfImages) {
     const imageCount = `&count=${numberOfImages}`
-    await fetch(API_URL + API_KEY + imageCount)
+    await fetch(API_URL + import.meta.env.VITE_NASA_API_KEY + imageCount)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -97,7 +86,7 @@ function CallApodApi() {
   async function getImagesByDates() {
     const startDate = `&start_date=${apodStartDate}`
     const endDate = `&end_date=${apodEndDate}`
-    await fetch(API_URL + API_KEY + startDate + endDate)
+    await fetch(API_URL + import.meta.env.VITE_NASA_API_KEY + startDate + endDate)
       .then((res) => res.json())
       .then(
         (result) => {
