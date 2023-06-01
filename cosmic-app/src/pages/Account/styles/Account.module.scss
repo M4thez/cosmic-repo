@@ -1,4 +1,4 @@
-@import 'src/assets/variables.scss';
+@import '/src/variables.scss';
 //MAIN FORM DIV
 .account-form {
   position: fixed;
@@ -21,7 +21,7 @@
   background-color: $new-black-full;
   display: flex;
   flex-direction: column;
-  background-image: url(src/assets/account/images/Wave1.svg), url(src/assets/account/images/Wave2.svg);
+  background-image: url(/assets/account/images/Wave1.svg), url(/assets/account/images/Wave2.svg);
   background-position: left 10% bottom, right bottom 50%;
   background-repeat: no-repeat;
   h3 {

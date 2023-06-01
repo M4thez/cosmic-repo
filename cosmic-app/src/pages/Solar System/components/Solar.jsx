@@ -17,7 +17,7 @@ import { BiInfoCircle } from 'react-icons/bi'
 const addendVector = new Vector3()
 
 function CelestialModel(props) {
-  const modelURL = `src/assets/solar_system/${props.model}`
+  const modelURL = `/assets/solar_system/${props.model}`
   const gltf = useLoader(GLTFLoader, modelURL)
   const mesh = useRef()
   const group = useRef()
@@ -229,7 +229,7 @@ export default function Solar() {
             maxDistance={4000}
             minDistance={0.3}
           />
-          <Environment background="only" files="src/assets/solar_system/starmap2020dark_6k.hdr" />
+          <Environment background="only" files="/assets/solar_system/starmap2020dark_6k.hdr" />
         </Suspense>
         <EffectComposer>
           <Noise opacity={0.026} />

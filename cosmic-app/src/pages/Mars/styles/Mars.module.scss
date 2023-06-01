@@ -1,4 +1,4 @@
-@import 'src/assets/variables.scss';
+@import '/src/variables.scss';
 
 .main {
   color: white;
@@ -36,7 +36,7 @@
 
   .canvasContainer {
     height: 100vh;
-    background-image: url('/src/assets/mars/2k_stars.jpg');
+    background-image: url('/assets/mars/2k_stars.jpg');
     background-color: black; /* Backup background */
   }
   

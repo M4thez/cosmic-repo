@@ -7,5 +7,7 @@ export default defineConfig({
   server: {
     open: '/menu',
     base: '/menu',
-  },
+  }, 
+  assetsInclude: ['**/*.glb'],
+  
 })

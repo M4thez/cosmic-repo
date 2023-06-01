@@ -119,7 +119,7 @@ export function Account() {
             src={
               auth.currentUser.photoURL
                 ? auth.currentUser.photoURL
-                : 'src/assets/account/images/user_placeholder_image.svg'
+                : '/assets/account/images/user_placeholder_image.svg'
             }
             alt="user image"
           />

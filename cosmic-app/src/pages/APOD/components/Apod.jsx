@@ -192,7 +192,7 @@ function CallApodApi() {
                     <div className={style['image-div']}>
                       <img
                         onClick={() => updateChosenPic(image)}
-                        src={image.url ? image.url : 'src/assets/video.png'}
+                        src={image.url ? image.url : '/assets/video.png'}
                         alt={image.title}
                         className={style['fetched-photo']}
                       />
