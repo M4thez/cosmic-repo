@@ -6,11 +6,12 @@ export default function RoverApi() {
   const [isInitialLoaded, setInitialLoaded] = useState(false)
   const [initialError, setInitialError] = useState(false)
   const [initialData, setInitialData] = useState([])
-  const BASE_URL = 'https://api.nasa.gov/mars-photos/api/v1'
+  const baseUrl = 'https://api.nasa.gov/mars-photos/api/v1'
+  const apiKey = '0381f1py7G8yhbs9VvrxN9JPn2O5LJ88EEqolGND'
 
   // run on start
   useEffect(() => {
-    fetch(BASE_URL + '/rovers?api_key=' + import.meta.env.VITE_NASA_API_KEY)
+    fetch(baseUrl + '/rovers?api_key=' + apiKey)
       .then((res) => res.json())
       .then((result) => {
         setInitialData(result.rovers)
@@ -27,7 +28,7 @@ export default function RoverApi() {
     <section className={style.roverApi}>
       <h2>Mars Rover Photos</h2>
       <div className={style.formsContainer}>
-        {isInitialLoaded && !initialError ? <RoverForm data={initialData} baseUrl={BASE_URL} apiKey={import.meta.env.VITE_NASA_API_KEY}/> : <div className={style.loading}>Loading...</div>}
+        {isInitialLoaded && !initialError ? <RoverForm data={initialData} baseUrl={baseUrl} apiKey={apiKey}/> : <div className={style.loading}>Loading...</div>}
       </div>
     </section>
   )
