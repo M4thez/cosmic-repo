@@ -2,12 +2,6 @@
 
 ## Setup commands
 
-Enter the app directory
-
-```
-cd .\cosmic-app\
-```
-
 Install required node packages
 
 ```

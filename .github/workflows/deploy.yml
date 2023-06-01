@@ -30,8 +30,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Enter app directory
-        run: cd ./cosmic-app/
       - name: Set up Node
         uses: actions/setup-node@v3
         with:

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     open: '/menu',
-    base: '/menu',
+    base: '/cosmic-repo/',
   }, 
   assetsInclude: ['**/*.glb'],
   
