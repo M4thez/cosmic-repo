@@ -21,7 +21,7 @@ function Model(props) {
   let markers = {}
 
   // Loading GLTF model
-  const modelURL = `/assets/stage_models/${props.model}`
+  const modelURL = `./assets/stage_models/${props.model}`
   const gltf = useLoader(GLTFLoader, modelURL)
 
   function clickMarker(markerName) {

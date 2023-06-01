@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    open: '/menu',
+    open: '/cosmic-repo/menu',
     base: '/cosmic-repo/',
   }, 
   assetsInclude: ['**/*.glb'],
-  
+  base: '/cosmic-repo/',
 })

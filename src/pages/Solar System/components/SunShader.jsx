@@ -63,11 +63,11 @@ export default function Sun() {
     time: { value: 1.0 },
     uvScale: { value: new THREE.Vector2(3.0, 1.5) },
     texture1: {
-      value: textureLoader.load('/assets/solar_system/textures/cloud.png'),
+      value: textureLoader.load('./assets/solar_system/textures/cloud.png'),
     },
     texture2: {
       value: textureLoader.load(
-        '/assets/solar_system/textures/lavatile.jpg'
+        './assets/solar_system/textures/lavatile.jpg'
       ),
     },
   }

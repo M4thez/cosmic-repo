@@ -121,7 +121,7 @@ export function Form() {
           <h3>Welcome</h3>
           <h3>to</h3>
           <h3>Cosmic</h3>
-          <img src="/assets/account/images/Logo.svg" />
+          <img src="./assets/account/images/Logo.svg" />
         </div>
         <div className={styles['input-part']}>
           <button id={styles['close']} onClick={() => dispatch(hideLoginForm())}>
@@ -240,7 +240,7 @@ export function Form() {
             </div>
           )}
           <button className={styles.button} id={styles['google-button']} onClick={signInGoogle}>
-            <img height={16} src="/assets/google-logo.png" />
+            <img height={16} src="./assets/google-logo.png" />
             Sign In with Google
           </button>
         </div>

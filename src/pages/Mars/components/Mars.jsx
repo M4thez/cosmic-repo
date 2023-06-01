@@ -9,7 +9,7 @@ import RoverApi from './RoverApi'
 
 // Imported 3D Globe model
 function MarsGlobe() {
-  const gltf = useLoader(GLTFLoader, '/assets/mars/MarsGlobe.glb')
+  const gltf = useLoader(GLTFLoader, './assets/mars/MarsGlobe.glb')
   const ref = useRef()
   const clock = new Clock()
   useFrame(() => (ref.current.rotation.y += 0.03 * clock.getDelta()))

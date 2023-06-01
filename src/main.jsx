@@ -19,7 +19,7 @@ import StageModels from './pages/Stage Models/components/StageModels'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename='/cosmic-repo/'>
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/mars" element={<Mars />} />

@@ -14,7 +14,7 @@ function LandModel(props) {
   }
 
   // Loading GLTF model
-  const modelURL = `/assets/mars/marsLandscapes/${props.model}`
+  const modelURL = `./assets/mars/marsLandscapes/${props.model}`
   const gltf = useLoader(GLTFLoader, modelURL)
   const ref = useRef()
   useFrame(() => (ref.current.rotation.y += 0.0008))

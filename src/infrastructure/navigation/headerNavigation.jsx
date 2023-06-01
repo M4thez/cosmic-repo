@@ -43,7 +43,7 @@ export const HeaderNavigation = () => {
   return (
     <nav className={style.headerNav}>
       <Link to="/menu" className={style.logoLink}>
-        <img src="/assets/cosmic-logo.svg" alt="cosmic logo" className={style.logo} />
+        <img src="./assets/cosmic-logo.svg" alt="cosmic logo" className={style.logo} />
       </Link>
       {/* <button id={style['hamburger-icon']} onClick={toggleMenu}>
         {' '}
