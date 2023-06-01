@@ -14,13 +14,10 @@ import style from '../styles/Apod.module.scss'
 import styles2 from '../../Account/styles/Account.module.scss'
 
 const API_URL = 'https://api.nasa.gov/planetary/apod?api_key='
-const RandomImageCount = '&count=4'
-// TODO Not secured API key
 const API_KEY = '0381f1py7G8yhbs9VvrxN9JPn2O5LJ88EEqolGND'
 const MEDIA_TYPE = '&media_type="image"'
 
 // Note: concept_tags functionality is turned off in API
-
 function CallApodApi() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -30,6 +27,8 @@ function CallApodApi() {
   const [apodEndDate, setEndDate] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
   const [apodErr, setApodErr] = useState(false)
+
+  const randomImageCount = '&count=4'
 
   //checking user status
   const userLoggedIn = useSelector((state) => state.app.userLoggedIn)
@@ -60,7 +59,7 @@ function CallApodApi() {
           setError(error)
         }
       )
-    fetch(API_URL + API_KEY + RandomImageCount)
+    fetch(API_URL + API_KEY + randomImageCount)
       .then((res) => res.json())
       .then(
         (result) => {
