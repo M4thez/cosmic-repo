@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import style from './headerNavigation.module.scss'
 import { auth } from '../firebase/firebase'
 import { signOut } from 'firebase/auth'
-import { changeModalVisible, changeSideMenuVisible, setUserIn, setUserOut, showLoginForm } from '../store/appState'
+import { showLoginForm } from '../store/appState'
 // import { onAuthStateChanged } from 'firebase/auth'
 
 export const HeaderNavigation = () => {
@@ -22,7 +22,7 @@ export const HeaderNavigation = () => {
   useEffect(() => {}, [user])
   async function signoutUser() {
     try {
-      navigate('/menu')
+      navigate('/')
       await signOut(auth)
       console.log('user is signed out', userLoggedIn)
       setTimeout(() => (window.location.href = '/about'), 1000)
@@ -31,18 +31,12 @@ export const HeaderNavigation = () => {
     }
   }
 
-  function closeLinkHub() {
-    dispatch(changeModalVisible())
-  }
   function showForm() {
     dispatch(showLoginForm())
   }
-  function toggleMenu() {
-    dispatch(changeSideMenuVisible())
-  }
   return (
     <nav className={style.headerNav}>
-      <Link to="/menu" className={style.logoLink}>
+      <Link to="/" className={style.logoLink}>
         <img src="./assets/cosmic-logo.svg" alt="cosmic logo" className={style.logo} />
       </Link>
       {/* <button id={style['hamburger-icon']} onClick={toggleMenu}>
@@ -51,7 +45,7 @@ export const HeaderNavigation = () => {
       </button> */}
       <ul className={style.links}>
         <li>
-          <Link to="/menu">Menu</Link>
+          <Link to="/">Home</Link>
         </li>
         {userLoggedIn && (
           <li>
