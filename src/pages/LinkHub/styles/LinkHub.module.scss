@@ -15,11 +15,11 @@
   border-radius: 12px;
   // position: absolute;
   // z-index: 2;
-  padding: 6rem;
+  padding: 2rem 6rem;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(4, 25%);
-  grid-template-rows: repeat(3, 200px);
+  grid-template-rows: repeat(3, 180px);
   grid-template-areas:
     'a a b b'
     'a a c c'
@@ -30,7 +30,7 @@
   // justify-content: center;
   a {
     font-family: 'Poppins';
-    font-size: 2rem;
+    font-size: 1.6rem;
     background-color: $black-100;
     padding: 0.5rem 1rem;
     text-decoration: none;

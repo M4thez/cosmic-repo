@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 import { HeaderNavigation } from './infrastructure/navigation/headerNavigation'
 import { Form } from './pages/Account/components/Form'
 import { ApodModal } from './pages/APOD/components/Modal'
-
 import Mars from './pages/Mars/components/Mars'
 import { Account } from './pages/Account/components/Account'
 import { Apod } from './pages/APOD/components/Apod'
@@ -12,6 +11,7 @@ import { Quizes } from './pages/Quizes/components/Quizes'
 import { LinkHub } from './pages/LinkHub/components/LinkHub'
 import Solar from './pages/Solar System/components/Solar'
 import StageModels from './pages/Stage Models/components/StageModels'
+import PageNotFound from './pages/PageNotFound/components/pageNotFound'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -60,7 +60,7 @@ export function App() {
         <Route path="/stage" element={<StageModels />} />
         <Route path="/quiz" element={<Quizes />} />
         {/* 404 page */}
-        
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
       {/* TODO */}
       {chosenPhotoShown && <ApodModal />}
