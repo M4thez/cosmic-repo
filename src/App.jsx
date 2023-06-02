@@ -34,6 +34,7 @@ export function App() {
     }
   })
   useEffect(() => {
+    // TODO
     try {
       setDoc(doc(quizCollection, 'questions'), {
         marsQuestions: [...quizes.marsQuestions],
@@ -52,6 +53,7 @@ export function App() {
   return (
     <div>
       <HeaderNavigation />
+      {/* <LinkHub/> */}
       {modal && <LinkHub />}
       <Outlet />
       {chosenPhotoShown && <ApodModal />}

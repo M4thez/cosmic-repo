@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import style from './headerNavigation.module.scss'
 import { auth } from '../firebase/firebase'
 import { signOut } from 'firebase/auth'
-import { changeModalVisible, changeSideMenuVisible, setUserIn, setUserOut, showLoginForm } from '../store/appState'
+import { showLoginForm } from '../store/appState'
 // import { onAuthStateChanged } from 'firebase/auth'
 
 export const HeaderNavigation = () => {
@@ -31,14 +31,8 @@ export const HeaderNavigation = () => {
     }
   }
 
-  function closeLinkHub() {
-    dispatch(changeModalVisible())
-  }
   function showForm() {
     dispatch(showLoginForm())
-  }
-  function toggleMenu() {
-    dispatch(changeSideMenuVisible())
   }
   return (
     <nav className={style.headerNav}>
