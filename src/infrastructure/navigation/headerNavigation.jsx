@@ -22,7 +22,7 @@ export const HeaderNavigation = () => {
   useEffect(() => {}, [user])
   async function signoutUser() {
     try {
-      navigate('/menu')
+      navigate('/')
       await signOut(auth)
       console.log('user is signed out', userLoggedIn)
       setTimeout(() => (window.location.href = '/about'), 1000)
@@ -36,7 +36,7 @@ export const HeaderNavigation = () => {
   }
   return (
     <nav className={style.headerNav}>
-      <Link to="/menu" className={style.logoLink}>
+      <Link to="/" className={style.logoLink}>
         <img src="./assets/cosmic-logo.svg" alt="cosmic logo" className={style.logo} />
       </Link>
       {/* <button id={style['hamburger-icon']} onClick={toggleMenu}>
@@ -45,7 +45,7 @@ export const HeaderNavigation = () => {
       </button> */}
       <ul className={style.links}>
         <li>
-          <Link to="/menu">Menu</Link>
+          <Link to="/">Home</Link>
         </li>
         {userLoggedIn && (
           <li>
