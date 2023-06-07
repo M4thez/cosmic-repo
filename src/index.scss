@@ -17,15 +17,7 @@
     background-color: $background-color;
   }
 }
-// Fonts
-@font-face {
-  font-family: Playfair Display SemiBoldItalic;
-  src: url('/assets/fonts/PlayfairDisplay/PlayfairDisplay-SemiBoldItalic.ttf');
-}
-@font-face {
-  font-family: Poppins Light;
-  src: url('/assets/fonts/Poppins/Poppins-Light.ttf');
-}
+
 // Body
 body {
   margin: 0;
@@ -35,4 +27,25 @@ body {
   background-color: black;
   color: white;
   @include scrollbar();
+}
+
+@mixin illuminated-button {
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 20px;
+  font-weight: 300;
+  margin: 4px 0;
+  text-decoration: none;
+  color: #e3e3ef;
+  background-color: #0d0d0d;
+  border: 2px solid #0088ff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  &:hover {
+    box-shadow: 0px 2px 20px 2px #0088ff;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #081122;
+  }
 }

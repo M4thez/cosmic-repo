@@ -65,7 +65,7 @@ function CallApodApi() {
         (result) => {
           setFetchedImages(result)
         },
-        (error) => console.log('Error appeared: ', error)
+        (error) => console.warn('Error appeared: ', error)
       )
   }, [])
   async function saveToProfile(image) {
@@ -89,7 +89,7 @@ function CallApodApi() {
         (result) => {
           setFetchedImages(result)
         },
-        (error) => console.log('Error appeared: ', error)
+        (error) => console.warn('Error appeared: ', error)
       )
   }
   //search by date function
@@ -110,12 +110,12 @@ function CallApodApi() {
             setFetchedImages(result)
           }
         },
-        (error) => console.log('Error appeared: ', error)
+        (error) => console.warn('Error appeared: ', error)
       )
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>
+    return <div>Error appeared - service unavailable</div>
   } else if (!isLoaded) {
     return <div>Loading...</div>
   } else {
