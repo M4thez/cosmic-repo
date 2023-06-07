@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 
 import { updateDoc, doc, getDoc } from 'firebase/firestore'
@@ -16,15 +16,21 @@ export function Quizes() {
   const [quizVisible, setQuizVisible] = useState(false)
   const [answerCorrect, setAnswerCorrect] = useState(true)
   const [quizesFirestore, setQuizesFirestore] = useState({})
-
+  
   console.log('quizesFirestore:', quizesFirestore)
-
+  
   //questions ref
   const questionsRef = doc(db, 'quizes', 'questions')
-
+  
   //getting user login state
   const userLoggedIn = useSelector((state) => state.app.userLoggedIn)
-
+  
+  //background video 
+  const videoRef = useRef(null);
+  useEffect(() => {
+    videoRef.current.playbackRate = 0.6;
+  }, []);  
+  
   function choseQuiz(quiz) {
     setChosenQuiz(quiz)
     setShowQuizSelection(false)
@@ -96,19 +102,16 @@ export function Quizes() {
   useEffect(() => {}, [currentQuestionIndex])
   return (
     <div className={styles['main-container']}>
+      <video ref={videoRef} playsInline autoPlay muted loop>
+        <source src="./assets/videos/particlesGray.mp4" type="video/mp4" />
+      </video>
       {showQuizSelection && (
         <div className={styles['quiz-choice']}>
           <h1>Choose the Quiz</h1>
           <div className={styles['choice-buttons']}>
-            <button onClick={() => choseQuiz('marsQuestions')}>
-              Planet Mars
-            </button>
-            <button onClick={() => choseQuiz('solarQuestions')}>
-              Solar System
-            </button>
-            <button onClick={() => choseQuiz('vehicleQuestions')}>
-              NASA Missions
-            </button>
+            <button onClick={() => choseQuiz('marsQuestions')}>Planet Mars</button>
+            <button onClick={() => choseQuiz('solarQuestions')}>Solar System</button>
+            <button onClick={() => choseQuiz('vehicleQuestions')}>NASA Missions</button>
           </div>
         </div>
       )}
@@ -161,7 +164,9 @@ export function Quizes() {
             >
               Retry
             </button>
-            <Link to="/" className={styles['link-button']}>Go Home</Link>
+            <Link to="/" className={styles['link-button']}>
+              Go Home
+            </Link>
           </div>
         </div>
       )}
