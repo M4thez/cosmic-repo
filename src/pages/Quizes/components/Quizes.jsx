@@ -102,7 +102,7 @@ export function Quizes() {
   useEffect(() => {}, [currentQuestionIndex])
   return (
     <div className={styles['main-container']}>
-      <video ref={videoRef} playsInline autoPlay muted loop>
+      <video ref={videoRef} playsInline autoPlay muted loop poster="./assets/images/particlesGray.jpg">
         <source src="./assets/videos/particlesGray.mp4" type="video/mp4" />
       </video>
       {showQuizSelection && (
