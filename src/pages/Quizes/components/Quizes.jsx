@@ -107,7 +107,7 @@ export function Quizes() {
       </video>
       {showQuizSelection && (
         <div className={styles['quiz-choice']}>
-          <h1>Choose the Quiz</h1>
+          <h1>Select Quiz</h1>
           <div className={styles['choice-buttons']}>
             <button onClick={() => choseQuiz('marsQuestions')}>Planet Mars</button>
             <button onClick={() => choseQuiz('solarQuestions')}>Solar System</button>
