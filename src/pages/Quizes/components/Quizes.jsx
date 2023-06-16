@@ -102,12 +102,12 @@ export function Quizes() {
   useEffect(() => {}, [currentQuestionIndex])
   return (
     <div className={styles['main-container']}>
-      <video ref={videoRef} playsInline autoPlay muted loop>
+      <video ref={videoRef} playsInline autoPlay muted loop poster="./assets/images/particlesGray.jpg">
         <source src="./assets/videos/particlesGray.mp4" type="video/mp4" />
       </video>
       {showQuizSelection && (
         <div className={styles['quiz-choice']}>
-          <h1>Choose the Quiz</h1>
+          <h1>Select Quiz</h1>
           <div className={styles['choice-buttons']}>
             <button onClick={() => choseQuiz('marsQuestions')}>Planet Mars</button>
             <button onClick={() => choseQuiz('solarQuestions')}>Solar System</button>
