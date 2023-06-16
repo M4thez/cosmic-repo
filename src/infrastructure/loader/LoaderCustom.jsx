@@ -4,10 +4,10 @@ export default function LoaderCustom() {
   return (
     <Loader
     containerStyles={{'background': '#040404'}}
-    innerStyles={{'height': '12px', 'borderRadius': '8px'}}
-    barStyles={{'height': '12px', 'borderRadius': '8px'}}
-    dataStyles={{'fontSize': '12px'}}
-    dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`}
+    innerStyles={{'width': '33vw','height': '16px'}}
+    barStyles={{'width': '33vw', 'height': '16px'}}
+    dataStyles={{'fontSize': '20px'}}
+    dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
     />
   )
 } 
