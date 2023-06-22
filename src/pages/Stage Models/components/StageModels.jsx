@@ -164,7 +164,7 @@ export default function StageModels(props) {
             minDistance={1}
           />
           <ContactShadows position={[0, -0.98, 0]} opacity={0.75} scale={10} blur={2} far={4} />
-          <Environment preset="warehouse" />
+          <Environment files="./assets/stage_models/studio_small_09_1k.hdr" />
         </Suspense>
       </Canvas>
       <LoaderCustom />

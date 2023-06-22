@@ -4,24 +4,29 @@ import styles from '../styles/LinkHub.module.scss'
 
 export function LinkHub() {
   return (
-    <div className={styles['parent-cont']}>
-      <div className={styles['links-container']}>
-        <Link to="/mars" className="mars-li">
-          Learn about Mars
-        </Link>
-        <Link to="/solar" className="solar-li">
-          Learn about our Solar System
-        </Link>
-        <Link to="/stage" className="stage-li">
-          Learn about NASA's inventions
-        </Link>
-        <Link to="/apod" className="apod-li">
-          See interesting astronomy pictures
-        </Link>
-        <Link to="/quiz" className="about-li">
-          Check your knowledge with our quizes
-        </Link>
+    <main className={styles['main-container']}>
+      <div className={styles['homepage-info']}>
+        <h1>Homepage</h1>
+        <p>
+          <i>Cosmic</i> - educational website for space exploration 
+        </p>
       </div>
-    </div>
+      <div className={styles['image-gallery']}>
+        <LinkImage imgSrc="./assets/link_hub/mars.jpg" linkTo="/mars" linkDescription="Learn about Mars" />
+        <LinkImage imgSrc="./assets/link_hub/solar.jpg" linkTo="/solar" linkDescription="Learn about Solar System" />
+        <LinkImage imgSrc="./assets/link_hub/stage.jpg" linkTo="/stage" linkDescription="Learn about NASA's inventions" />
+        <LinkImage imgSrc="./assets/link_hub/apod.jpg" linkTo="/apod" linkDescription="See interesting astronomy pictures" />
+        <LinkImage imgSrc="./assets/link_hub/logo.jpg" linkTo="/quiz" linkDescription="Check your knowledge with our quizzes" />
+      </div>
+    </main>
+  )
+}
+
+function LinkImage(props) {
+  return (
+    <Link className={styles['link-image-item']} to={props.linkTo}>
+      <img src={props.imgSrc} />
+      <div className={styles['image-text-overlay']}>{props.linkDescription}</div>
+    </Link>
   )
 }
