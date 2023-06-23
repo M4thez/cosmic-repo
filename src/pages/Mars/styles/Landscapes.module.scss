@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #0d0d0d;
+  border-radius: 1rem;
 
   justify-content: center;
   h2 {
@@ -51,8 +53,6 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background-color: #0d0d0d;
-    border-radius: 1rem 1rem 0 0;
     .landInfo {
       flex-basis: 45%;
       padding: .5rem;
@@ -72,6 +72,6 @@
 }
 @media screen and (max-width: 600px) {
   .landscapes {
-    margin: 5rem 0.5rem 1rem;
+    margin: 2rem 0.5rem 1rem;
   }
 }
