@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2em;
-  padding: 2em;
+  padding: 1.5em 2em 2em;
 
   .link-image-item {
     position: relative;
@@ -31,18 +31,21 @@
     
     .image-text-overlay {
       position: absolute;
-      bottom: 2%;
-      left: 2%;
-      font-size: 26px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 22px;
       padding: 0.5em;
       color: white;
-      text-shadow: 2px 2px 4px #2b2b2b;
+      border-radius: 0 0 12px 12px;
+      text-shadow: 2px 2px 4px #222222;
+      background-color: rgba(0, 0, 0, 0.4);
     }
     img {
+      width: 100%;
+      height: auto;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-      max-width: 100%;
-      height: auto;
       vertical-align: middle;
       border-radius: 12px;
       transition: box-shadow 0.12s ease-in;
@@ -61,6 +64,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .main-container{
+    margin: 1em 0.5em;
+  }
+  .image-gallery {
+    gap: 1em;
+    padding: 0.5em 0.5em 1em;
+  }
+}
+
 
 @media screen and (max-width: 320px) {
     .image-text-overlay {

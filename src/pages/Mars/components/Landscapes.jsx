@@ -2,6 +2,7 @@ import style from '../styles/Landscapes.module.scss'
 import React, { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { MathUtils } from 'three'
 import { OrbitControls } from '@react-three/drei'
 import landscapes from './Landscapes.json'
 import LoaderCustom from '../../../infrastructure/loader/LoaderCustom'
@@ -67,20 +68,6 @@ export default function Landscapes() {
   return (
     <section className={style.landscapes}>
       <h2>Landscapes</h2>
-      <div className={style.landElement}>
-        <div className={style.canvas}>
-          <Canvas camera={{ fov: 60, position: [0, 15, 40] }}>
-            <Suspense fallback={null}>
-              {lands}
-              <ambientLight intensity={0.2} />
-              <directionalLight color="white" position={[5, 5, 5]} intensity={1} />
-              <OrbitControls makeDefault enableZoom={true} enablePan={false} zoomSpeed={0.7} />
-            </Suspense>
-          </Canvas>
-          <LoaderCustom />
-        </div>
-        <div className={style.landInfo}>{landsInfo}</div>
-      </div>
       <div className={style.landButtons}>
         <button onClick={prevLand}>
           <AiFillCaretLeft />
@@ -88,10 +75,31 @@ export default function Landscapes() {
         <span>{activeIndex + 1}</span>
         <span>/</span>
         <span>{landscapes.length}</span>
-
         <button onClick={nextLand}>
           <AiFillCaretRight />
         </button>
+      </div>
+      <div className={style.landElement}>
+        <div className={style.canvas}>
+          <Canvas camera={{ fov: 60, position: [0, 15, 40] }}>
+            <Suspense fallback={null}>
+              {lands}
+              <ambientLight intensity={0.2} />
+              <directionalLight color="white" position={[5, 5, 5]} intensity={1} />
+              <OrbitControls
+                makeDefault
+                enableZoom={true}
+                enablePan={false}
+                zoomSpeed={0.7}
+                minDistance={5}
+                maxDistance={60}
+                maxPolarAngle={MathUtils.degToRad(86)}
+              />
+            </Suspense>
+          </Canvas>
+          <LoaderCustom />
+        </div>
+        <div className={style.landInfo}>{landsInfo}</div>
       </div>
     </section>
   )
