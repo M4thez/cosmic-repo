@@ -1,29 +1,56 @@
 @import '/src/variables.scss';
-h2 {
-  margin: 4px 0;
+
+.mainContainer {
+  font-family: 'Poppins', sans-serif;
+  h1 {
+    text-align: center;
+  }
+  button {
+    font-family: 'Poppins', sans-serif;
+
+    background-color: transparent;
+    border: 2px solid $accent-blue;
+    cursor: pointer;
+    color: white;
+    font-size: 1em;
+    padding: 0.6em 1.2em;
+    margin: 0.2em;
+    border-radius: 0.8em;
+    transition: box-shadow 0.2s ease;
+    &:hover {
+      box-shadow: 0px 2px 16px 0px #0088ff;
+    }
+  }
+  p {
+    font-weight:200 ;
+  }
 }
-p {
-  margin: 4px 0;
+
+.pageError {
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.5em;
+  svg {
+    width: 2em;
+    height: 2em;
+    color: $red;
+  }
+  p {
+    margin: 4px 0;
+  }
 }
-.apodContainer {
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
+
 .apodContentContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: $dark-grey-bg;
-  border-color: $light-grey-bg;
-  border-style: solid;
-  border-width: 0.25rem;
-  margin: 0 5.8rem;
-  padding: 2rem;
+  border: none;
   border-radius: 30px;
 }
 .apodImageContainer {
@@ -47,68 +74,12 @@ p {
   justify-content: center;
 }
 
-.apodButtons {
-  button {
-    background-color: $dark-grey-bg;
-    border: 2px solid $accent-blue;
-    cursor: pointer;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 13px 24px;
-    margin: 0.2rem;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: box-shadow 0.2s ease;
-    &:hover {
-      box-shadow: 0px 2px 16px 0px #0088ff;
-    }
-  }
-}
-
-.filter-btn {
-  background-color: $light-grey-bg;
-  color: white;
-  font-size: 1rem;
-  font-family: 'Poppins';
-  padding: 0.5rem 1rem;
-  margin: 0.2rem;
-  border-radius: 12px;
-  border: 2px solid $accent-blue;
-  cursor: pointer;
-  transition: box-shadow 0.2s ease;
-  &:hover {
-    box-shadow: 0px 2px 16px 0px #0088ff;
-  }
-}
-//span
-.datesSpan {
-  color: $font-white;
-  font-family: 'Poppins';
-  font-size: 1rem;
-}
-
-//FETCHED IMAGES
-.image-div {
-  height: 250px;
-  width: 250px;
-  overflow: hidden;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-.fetched-photo {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
 .filters {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 0.625rem;
+  justify-content: space-between;
+  gap: 1em;
 }
+
 .dates-div {
   display: flex;
   gap: 0.5rem;
@@ -117,6 +88,66 @@ p {
 .date-input {
   border: none;
   padding: 0.5rem 1rem;
-  font-family: 'Poppins';
+  // font-family: 'Poppins';
   border-radius: 6px;
+}
+
+// ***************** ACCOUNTS LEFTOVERS *****************
+
+.custom-images-container {
+  background-color: $dark-grey-bg;
+  border-radius: 30px;
+  border: none;
+  .images-header {
+    color: $font-white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  .image-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 20%;
+    background-color: $light-grey-bg;
+    border-radius: 1rem;
+    cursor: pointer;
+    .image-div {
+      height: 250px;
+      width: 250px;
+      border-radius: 1rem 1rem 0 0;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }    
+    .image-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: $font-white;
+    }
+  
+    transition: 0.3s ease;
+    &:hover {
+      background-color: $font-white;
+      box-shadow: -2px 6px 29px 0px $accent-blue;
+      & .image-text > * {
+        color: $light-grey-bg;
+      }
+    }
+  }
 }

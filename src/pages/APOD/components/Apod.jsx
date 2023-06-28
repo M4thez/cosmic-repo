@@ -8,17 +8,16 @@ import { auth, db } from '../../../infrastructure/firebase/firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import { setChosenPhoto, showChosenPhoto } from '../../../infrastructure/store/appState'
 
-import { BsFillPlusCircleFill } from 'react-icons/bs'
+import { BiErrorCircle } from "react-icons/bi";
 
 import style from '../styles/Apod.module.scss'
-import styles2 from '../../Account/styles/Account.module.scss'
+import LoaderDots from '../../../infrastructure/loader/LoaderDots'
 
 const API_URL = 'https://api.nasa.gov/planetary/apod?api_key='
 const API_KEY = '0381f1py7G8yhbs9VvrxN9JPn2O5LJ88EEqolGND'
-const MEDIA_TYPE = '&media_type="image"'
 
 // Note: concept_tags functionality is turned off in API
-function CallApodApi() {
+export function Apod() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [image, setImage] = useState('')
@@ -35,15 +34,6 @@ function CallApodApi() {
 
   function downloadImage() {
     window.open(image.hdurl)
-  }
-
-  // Saving image to user profile
-  async function saveImage() {
-    await updateDoc(currentUserRef, {
-      savedImages: arrayUnion({ ...image }),
-    })
-    console.log(`saved iamge: ' ${image.url} to account: ${auth.currentUser.uid}`)
-    alert('You saved an image.')
   }
 
   useEffect(() => {
@@ -115,23 +105,32 @@ function CallApodApi() {
   }
 
   if (error) {
-    return <div>Error appeared - service unavailable</div>
+    return (
+      <div className={style.pageError}>
+        <BiErrorCircle />
+        <p>Error appeared - APOD service unavailable</p>
+      </div>
+    )
   } else if (!isLoaded) {
-    return <div>Loading...</div>
+    return <LoaderDots title="Astronomy Picture of the Day" />
   } else {
     return (
-      <div>
-        <div className={style.apodContentContainer}>
+      <main className={style.mainContainer}>
+        <h1>Astronomy Picture of the Day</h1>
+        <section className={style.apodContentContainer}>
           <div className={style.apodImageContainer}>
-            <img className={style.apodImageCol + ' ' + style.apodImage} src={image.url} alt={image.title} />
+            <img
+              className={style.apodImageCol + ' ' + style.apodImage}
+              src={image.media_type === 'image' ? image.url : './assets/images/image_not_supported.svg'}
+              alt={image.title}
+            />
             <div className={style.apodInfo + ' ' + style.apodImageCol}>
               <p>
                 <b>{image.title}</b>
               </p>
-              <br />
               <p>{image.explanation}</p>
               <p>{image.date}</p>
-              {/* Conditionally render copyright if exists */}
+              {/* Conditionally render copyright if it exists */}
               {image.copyright && (
                 <p>
                   <i>@{image.copyright}</i>
@@ -140,88 +139,74 @@ function CallApodApi() {
             </div>
           </div>
           <div className={style.apodButtons}>
-            <button onClick={downloadImage}>Open</button>
+            <button onClick={downloadImage}>Download</button>
             {userLoggedIn && <button onClick={() => saveToProfile(image)}>Save</button>}
           </div>
-        </div>
-        <div className={styles2['saved-images']}>
-          <p className={styles2['images-header']}>Discover more</p>
+        </section>
+        <section className={style['custom-images-container']}>
+          <p className={style['images-header']}>Discover more</p>
           <div className={style['filters']}>
             <div>
-              <button className={style['filter-btn']} onClick={() => getImages(3)}>
-                Random 3 Images
+              <button onClick={() => getImages(4)}>
+                Random 4 Images
               </button>
-              <button className={style['filter-btn']} onClick={() => getImages(5)}>
-                Random 5 Images
-              </button>
-              <button className={style['filter-btn']} onClick={() => getImages(10)}>
-                Random 10 Images
+              <button onClick={() => getImages(8)}>
+                Random 8 Images
               </button>
             </div>
             <div className={style['dates-div']}>
-              <span className={style['datesSpan']}>From</span>
+              <label htmlFor="start-date">From</label>
               <input
                 className={style['date-input']}
                 type="date"
-                name="start-date"
+                id="start-date"
                 onChange={(event) => {
                   setStartDate(event.target.value)
                   console.log(apodStartDate)
                 }}
               />
-              <span className={style['datesSpan']}>To</span>
+              <label htmlFor="end-date">To</label>
               <input
                 className={style['date-input']}
                 type="date"
-                name="end-date"
+                id="end-date"
                 onChange={(event) => {
                   setEndDate(event.target.value)
                   console.log('end', apodEndDate)
                 }}
               />
-              <button className={style['filter-btn']} onClick={() => getImagesByDates()}>
+              <button onClick={() => getImagesByDates()}>
                 Search by date
               </button>
             </div>
           </div>
-          <div className={styles2['cards']}>
+          <div className={style['cards']}>
             {!apodErr ? (
-              fetchedImages.map((image) => (
-                <div key={image.title} className={styles2['image-card']}>
-                  <div className={styles2['card-visuals']}>
-                    <div className={style['image-div']}>
-                      <img
-                        onClick={() => updateChosenPic(image)}
-                        src={image.url ? image.url : './assets/video.png'}
-                        alt={image.title}
-                        className={style['fetched-photo']}
-                      />
-                    </div>
-                    <p className={styles2['image-title']}>{image.title}</p>
+              fetchedImages.map((image, index) => (
+                <div key={image.title+index} className={style['image-card']}>
+                  <div className={style['image-div']}>
+                    <img
+                      onClick={() => updateChosenPic(image)}
+                      src={image.media_type === 'image' ? image.url : './assets/images/image_not_supported.svg'}
+                      alt={image.title}
+                    />
+                  </div>
+                  <div className={style['image-text']}>
+                    <p>{image.title}</p>
                     {userLoggedIn && (
                       <button title="Save image to profile" onClick={() => saveToProfile(image)}>
-                        <BsFillPlusCircleFill />
+                        SAVE
                       </button>
                     )}
                   </div>
-                  <p className={styles2['image-desc']}>{image.explanation}</p>
                 </div>
               ))
             ) : (
               <h2>{errorMsg}</h2>
             )}
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     )
   }
-}
-
-export function Apod() {
-  return (
-    <div className={style.apodContainer}>
-      <h2>Astronomy Picture of the Day</h2>
-      <CallApodApi />
-    </div>
-  )
 }
