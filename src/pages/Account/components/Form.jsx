@@ -10,7 +10,7 @@ import { collection, setDoc, doc, getDoc } from 'firebase/firestore'
 
 import { auth, db } from '../../../infrastructure/firebase/firebase'
 
-import styles from '../styles/Account.module.scss'
+import styles from '../styles/AccountForm.module.scss'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeUserLoggedIn, hideLoginForm } from '../../../infrastructure/store/appState'

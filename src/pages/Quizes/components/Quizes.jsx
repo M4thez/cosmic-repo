@@ -11,13 +11,11 @@ export function Quizes() {
   const [score, setScore] = useState(0)
   const [explanationVisible, setExplanationVisibility] = useState(false)
   const [summaryVisible, setSummaryVisibility] = useState(false)
-  const [chosenQuiz, setChosenQuiz] = useState('marsQuestions')
+  const [chosenQuiz, setChosenQuiz] = useState('')
   const [showQuizSelection, setShowQuizSelection] = useState(true)
   const [quizVisible, setQuizVisible] = useState(false)
   const [answerCorrect, setAnswerCorrect] = useState(true)
   const [quizesFirestore, setQuizesFirestore] = useState({})
-  
-  console.log('quizesFirestore:', quizesFirestore)
   
   //questions ref
   const questionsRef = doc(db, 'quizes', 'questions')
@@ -50,12 +48,9 @@ export function Quizes() {
           //user ref
           const currentUserRef = doc(db, 'users', auth.currentUser.uid)
           console.log('saving score', currentUserRef)
-          if (chosenQuiz === 'marsQuestions') {
-            await updateDoc(currentUserRef, { marsQuiz: `${score}/${quizesFirestore[chosenQuiz].length}` })
-          } else if (chosenQuiz === 'solarQuestions') {
-            await updateDoc(currentUserRef, { solarQuiz: `${score}/${quizesFirestore[chosenQuiz].length}` })
-          } else if (chosenQuiz === 'vehicleQuestions') {
-            await updateDoc(currentUserRef, { vehicleQuiz: `${score}/${quizesFirestore[chosenQuiz].length}` })
+          if (chosenQuiz !== '') {
+            await updateDoc(currentUserRef, { quizzesScores: {[chosenQuiz]: `${score}/${quizesFirestore[chosenQuiz].length}` }})
+            // await updateDoc(currentUserRef, { marsQuiz: `${score}/${quizesFirestore[chosenQuiz].length}` })
           }
         }
       } catch (error) {
