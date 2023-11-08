@@ -1,6 +1,22 @@
-# praca-inzynierska-bmmb
+# Cosmic - educational web application
 
-## Setup commands
+Live website is available at https://m4thez.github.io/cosmic-repo
+
+## Documentation
+
+Cosmic's documentation is available in the form of the engineering thesis:
+
+- https://drive.google.com/file/d/1S_Ko3VMoPEYaz3zJv8BUizyzz41OrJ2j/view?usp=sharing
+
+---
+
+### Local setup commands
+
+Git clone the repository
+
+```
+git clone https://github.com/M4thez/cosmic-repo.git
+```
 
 Install required node packages
 
@@ -14,7 +30,9 @@ Start dev server
 npm run dev
 ```
 
-## Development links
+---
+
+### Development resources
 
 React Three Fiber
 
@@ -47,7 +65,7 @@ Inspiration - Mars
 - https://mars.nasa.gov/all-about-mars/facts/
 - https://www.space.com/41254-touring-mars-red-planet-road-trip.html
 
-## Resources
+### Other resources
 
 - https://www.solarsystemscope.com/textures/ - solar system planets textures and background images
 - https://www.svgrepo.com/svg/53673/planet - saturn svg icon
@@ -65,10 +83,12 @@ Inspiration - Mars
 - https://svs.gsfc.nasa.gov/4851 - star map hdri
 
 Curiosity anatomy:
+
 - https://g.co/kgs/QjCy2R
 - https://mars.nasa.gov/msl/rover-3d/
 
 The rest - anatomy:
+
 - https://mars.nasa.gov/technology/helicopter/#Anatomy
 - https://mars.nasa.gov/insight/spacecraft/about-the-lander/
 - https://mars.nasa.gov/mer/mission/instruments/
@@ -77,15 +97,5 @@ The rest - anatomy:
 - https://voyager.jpl.nasa.gov/mission/spacecraft/interactive.php
 
 ThreeJS - delta time
+
 - https://discoverthreejs.com/book/first-steps/animation-loop/#measuring-time-across-frames
-
-
-## Development
-
-Drive - Inżynierka
-
-- https://drive.google.com/drive/folders/107sc-pr7ainwoeZOKcoEDJQyGRuWuCTp?usp=sharing
-
-Figma designs
-
-- https://www.figma.com/files/team/1048369725744733499
